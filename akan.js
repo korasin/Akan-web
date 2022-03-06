@@ -1,11 +1,20 @@
 function getDate(){
    console.log("date entered");
    return ("date entered");
-}if (date==0){
+}if (date<0){
    console.log("invalid, enter another")
-}else if(date==32){
+}else if(date>31){
    console.log("invalid, enter another")
-}
+}  
+
+function getMonth(){
+    console.log("month entered");
+}if (month<0){
+    console.log("invalid enter another")
+}else if(month>12){
+    console.log("invalid enter another")
+} 
+
 function myDay(){
     console.log ("your name is" + date);
 }if (day==0){
