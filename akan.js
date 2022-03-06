@@ -2,17 +2,17 @@ function getDate(){
    console.log("date entered");
    return ("date entered");
 }if (date<0){
-   console.log("invalid, enter another")
+   alert("invalid, enter another")
 }else if(date>31){
-   console.log("invalid, enter another")
+   alert("invalid, enter another")
 }  
 
 function getMonth(){
     console.log("month entered");
 }if (month<0){
-    console.log("invalid enter another")
+    alert("invalid enter another")
 }else if(month>12){
-    console.log("invalid enter another")
+    alert("invalid enter another")
 } 
 
 function myDay(){
@@ -34,4 +34,8 @@ function myDay(){
 }
 myDay();
 Day of the week (d) = ( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) mod 7
-
+onClick: function (event) {
+    event.preventDefault();
+    var field = event.target.name;
+    alert("The name is : " + field);
+}
