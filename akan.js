@@ -1,41 +1,44 @@
-function getDate(){
-   console.log("date entered");
-   return ("date entered");
-}if (date<0){
-   alert("invalid, enter another")
-}else if(date>31){
-   alert("invalid, enter another")
-}  
+function documentFunction()
+(document).ready(function(){
+    $("#myBirthDate").mask("99/99/9999");
+});
 
-function getMonth(){
-    console.log("month entered");
-}if (month<0){
-    alert("invalid enter another")
-}else if(month>12){
-    alert("invalid enter another")
-} 
 
-function myDay(){
-    console.log ("your name is" + date);
-}if (day==0){
-    console.log("sunday")
-}else if(day==1){
-    console.log("monday")
-}else if(day==2){
-    console.log("tuesday")
-}else if(day==3){
-    console.log("wednesday")
-}else if(day==4){
-    console.log("thursday")
-}else if(day==5){
-    console.log("friday")
-}else (day==6);{
-    console.log("saturday")
+function getAkanName(){
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var maleAkanNames = ["Kwasi","Kwadwo","Kwabena","Kwaku","Yaw","Kofi","Kwame"]
+    var femaleAkanNames = ["Akosua","Adwoa","Abenaa","Akua","Yaa","Afua","Ama"]
+    var myBirthday = document.getElementById("myBirthDate").value;
+    var myGender = document.getElementsByName("gender");
+    var dateOfBirth = new Date(myBirthday);
+    var dayOfTheWeek = dateOfBirth.getDay();
+    if(myBirthday === ""){
+        document.getElementById('message').innerHTML = "<div class=\"alert alert-danger\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button><strong>Oh snap!</strong> You Didn't Submit a Valid Date!</div>";
+        $('#message').addClass("animated shake");
+    }
+    else {
+        for(var i=0;i<myGender.length;i++){
+            if(myGender[i].checked){
+                if(myGender[i].value === "Male"){
+                    document.getElementById('message').innerHTML = "<span><i class=\"fa fa-male\"></i></span>&nbsp;&nbsp; Born on a <span>" + days[dayOfTheWeek] + "</span>, Your Akan Name's <span>" + maleAkanNames[dayOfTheWeek] + "</span>";
+                    $('#message span:first-child').addClass("animated fadeInDown");
+                    $('#message span:last-child').addClass("animated fadeInUp");
+                }
+                else {
+                    document.getElementById('message').innerHTML = "<span><i class=\"fa fa-female\"></i></span>&nbsp;&nbsp; Born on a <span>" + days[dayOfTheWeek] + "</span>, Your Akan Name's <span>" + femaleAkanNames[dayOfTheWeek] + "</span>";
+                    $('#message span:first-child').addClass("animated fadeInDown");
+                    $('#message span:last-child').addClass("animated fadeInUp");
+                }
+                break;
+            }    
+            else {
+                document.getElementById('message').innerHTML = "<div class=\"alert alert-danger\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button><strong>Oh snap!</strong> You Should Select a Gender Too Determine Your Akan Name!</div>";
+                $('#message').addClass("animated shake");
+            }
+        }
+    }
 }
-myDay();
-Day of the week (d) = ( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) mod 7
-onClick: function (event) {
-    event.preventDefault();
-    var field = event.target.name;
-    alert("The name is : " + field);
+
+function clearAkanMessage(){
+    document.getElementById('message').innerHTML = "";
 }
