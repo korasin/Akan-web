@@ -1,7 +1,7 @@
-function documentFunction()
+function documentFunction(){
 (document).ready(function(){
     $("#myBirthDate").mask("99/99/9999");
-});
+});}
 
 function getAkanName(){
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -38,7 +38,7 @@ function getAkanName(){
     }
 }
 
-function documentFunction(){
-    document.getElementById('demo').innerHTML = "Your Akan name is";
-}
-documentFunction();
+$('button').click(function(){
+    alert(`your akan name is!`)
+});
+// documentFunction()
